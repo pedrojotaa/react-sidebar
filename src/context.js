@@ -21,8 +21,8 @@ const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value="hello">
-      {{
+    <AppContext.Provider
+      value={{
         isSidebarOpen,
         isModalOpen,
         openSidebar,
@@ -30,6 +30,8 @@ const AppProvider = ({ children }) => {
         closeSidebar,
         closeModal,
       }}
+    >
+      {children}
     </AppContext.Provider>
   );
 };
@@ -39,4 +41,4 @@ export const useGlobalContext = () => {
   return useContext(AppContext);
 };
 
-export {AppContext, AppProvider}
+export { AppContext, AppProvider };

@@ -5,11 +5,13 @@ import { links, social } from "./data";
 import { useGlobalContext } from "./context";
 
 function Sidebar() {
+  const { isSidebarOpen, closeSidebar } = useGlobalContext();
+
   return (
-    <aside className={`sidebar show-sidebar`}>
+    <aside className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}>
       <div className="sidebar-header">
-        <img src={logo} classname="logo" alt="coding addict" />
-        <button className="close-btn">
+        <img src={logo} className="logo" alt="coding addict" />
+        <button className="close-btn" onClick={closeSidebar}>
           <FaTimes />
         </button>
       </div>
@@ -27,13 +29,11 @@ function Sidebar() {
         })}
       </ul>
       <ul className="social-icons">
-      {social.map((link) => {
+        {social.map((link) => {
           const { id, url, icon } = link;
           return (
             <li key={id}>
-              <a href={url}>
-                {icon}
-              </a>
+              <a href={url}>{icon}</a>
             </li>
           );
         })}
