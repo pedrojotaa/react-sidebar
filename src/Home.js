@@ -1,5 +1,6 @@
 import "./index.css";
 import { FaBars } from "react-icons/fa";
+import { useGlobalContext } from "./context";
 
 function Home() {
   return (

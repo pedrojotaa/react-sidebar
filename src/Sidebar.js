@@ -2,6 +2,7 @@ import { FaTimes } from "react-icons/fa";
 import "./index.css";
 import logo from "./logo.svg";
 import { links, social } from "./data";
+import { useGlobalContext } from "./context";
 
 function Sidebar() {
   return (
